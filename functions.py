@@ -5,9 +5,10 @@ def clear_screen():
 
 # Clears the screen and displays the headline
 def header_line(text):
-    clear_screen()
-    print(text)
-    print("=" * len(text) + "\n")
+    if len(text) > 0:
+        clear_screen()
+        print(text)
+        print("=" * len(text) + "\n")
 
 
 # Displays message if exists

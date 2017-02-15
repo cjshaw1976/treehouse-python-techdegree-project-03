@@ -161,13 +161,14 @@ def display_tasks(data):
     error = ""
 
     while True:
+        display_task = task.Task(date=data[task_position]['date'],
+                         name=data[task_position]['name'],
+                         minutes=data[task_position]['minutes'],
+                         notes=data[task_position]['notes'])
         # Display task info
         functions.header_line("Displaying task {} of {}."
                               .format(task_position + 1, len(data)))
-        print("Date: {}".format(data[task_position]['date']))
-        print("Title: {}".format(data[task_position]['name']))
-        print("Minutes Spent: {}".format(data[task_position]['minutes']))
-        print("Additional Notes: {}\n".format(data[task_position]['notes']))
+        display_task.display()
 
         # Display options
         if task_position != 0:
@@ -199,10 +200,10 @@ def display_tasks(data):
 
         # Handle delete
         if select == "d":
-            task.delete_entry(data[task_position])
+            display_task.delete_entry()
             break
 
         # Handle editing
         if select == "e":
-            task.edit_entry(data[task_position])
+            display_task.edit_entry()
             break

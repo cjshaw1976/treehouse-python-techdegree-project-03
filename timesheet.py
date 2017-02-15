@@ -16,7 +16,7 @@ if __name__ == '__main__':
         )
 
         if int(menu_choice) == 1:
-            task.new()
+            new_task = task.Task()
 
         if int(menu_choice) == 2:
             # 3 Display 4 search options
